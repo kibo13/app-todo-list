@@ -1,0 +1,181 @@
+// header   
+.header
+  color: $text-color
+
+  &__date
+    text-transform: capitalize  
+    font-size: 20px
+    color: $text-color
+    letter-spacing: 1px
+    padding: 10px 5px
+
+  &__group
+    padding: 5px
+    display: flex
+    align-items: center
+    background: rgba($dark-color, .1)
+    border-radius: 6px
+
+  &__inp
+    padding: 5px 15px
+    width: 100%
+    height: $elem-height
+    font-size: 14px
+    color: $text-color
+    background: transparent
+    outline: transparent
+    border: transparent
+    &::placeholder 
+      color: #dddddd
+
+  &__btn
+    margin-right: 10px
+    width: 30px
+    height: 30px
+    font-size: 30px
+    line-height: 30px
+    color: #dddddd
+    transition: all .3s
+    &:hover
+      cursor: pointer
+      transform: rotate(90deg)
+
+// horizontal line   
+.line 
+  display: block
+  margin: 15px auto
+  width: 100%
+  height: 1px 
+  background: #dddddd
+
+// todo list 
+.todo 
+  display: flex 
+  flex-wrap: wrap
+  justify-content: center
+  height: auto
+
+  &__group
+    flex-basis: 49%
+    &:first-child 
+      margin-right: 15px
+  &__title
+    position: relative
+    padding: 15px 15px 10px
+    text-transform: uppercase
+    font-size: 12px
+    font-weight: bold
+    border-radius: 6px 6px 0 0
+    background: #f5f5f5
+    &::after
+      content: ''
+      position: absolute
+      left: 50%
+      bottom: 0
+      transform: translateX(-50%)
+      width: 97%
+      height: 1px
+      background: #e0e0e0
+  
+  &__dot
+    margin-right: 5px
+    float: right
+    display: inline-block
+    text-align: center
+    font-size: 12px
+    font-weight: bold
+      
+  &__list
+    padding: 15px 15px 5px
+    display: flex
+    flex-direction: column
+    border-radius: 0 0 6px 6px
+    background: #f5f5f5
+  &__item
+    margin-bottom: 10px
+    display: flex
+    align-items: center
+    width: 100%
+    height: $elem-height
+    background: #ffffff
+    border-radius: 6px
+    box-shadow: $red-shadow
+    user-select: none
+  &__text
+    padding: 5px 15px
+    width: 100%
+    height: 100%
+    font-size: 12px
+    line-height: 30px
+  &__btn
+    float: right
+    width: 40px
+    height: 30px
+    line-height: 30px
+    text-align: center
+    font-size: 18px
+    color: rgba($dark-color, .4)
+    transition: all .3s
+    // button for remove task 
+    &-remove
+      position: relative
+      &:hover 
+        color: $red-color
+      &::after
+        content: ''
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translateY(-50%)
+        height: 80%
+        width: 1px
+        background: #e0e0e0      
+    // button for complete task
+    &-check:hover
+      color: $green-color
+    &:hover
+      cursor: pointer
+    
+// dot of toggle 
+.toggle-on
+    position: relative
+    border: 8px solid transparent
+    top: 2px
+    border-top: 10px solid rgba($dark-color, .8)
+    &:hover
+      cursor: pointer
+.toggle-off
+    position: relative
+    border: 8px solid transparent
+    bottom: 5px
+    border-bottom: 10px solid rgba($dark-color, .8)
+    &:hover
+      cursor: pointer
+
+// dot of count 
+.proc,
+.done 
+  margin-right: 10px
+  width: auto
+  padding: 0px 5px
+.proc
+  box-shadow: $red-shadow
+.done 
+  box-shadow: $green-shadow
+
+// hidden lists of tasks 
+.hidden 
+  display: none
+
+// flag to check state ? complete : done 
+.check 
+  box-shadow: $green-shadow
+.lineThrough
+  text-decoration: line-through
+
+@media (max-width: 800px)
+  .todo
+    &__group
+      margin: 0 !important
+      margin-bottom: 15px !important
+      flex-basis: 100%
